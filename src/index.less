@@ -1,0 +1,59 @@
+@maskBg: rgba(0,0,0,0.5);
+@bgColor: #fff;
+@btnBgColor: #D00000;
+
+html {
+  font-size: 20px;
+
+  body {
+    color: @btnBgColor;
+  }
+}
+
+.mask {
+  display: none;
+  position: fixed;
+  background-color: @maskBg;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99;
+
+  .content {
+    position: fixed;
+    width: 300px;
+    height: 250px;
+    background-color: @bgColor;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 9999;
+    padding: 20px 20px 0 20px;
+    text-align: center;
+
+    .title {
+      font-size: 30px;
+    }
+
+    .btn-area {
+      position: absolute;
+      width: 100%;
+      height: 60px;
+      line-height: 60px;
+      bottom: 30px;
+      left: 0;
+
+      button {
+        background-color: @btnBgColor;
+        color: #fff;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        border: none;
+      }
+    }
+  }
+}
+
+

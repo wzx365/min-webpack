@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>
+    minipack test
+  </title>
+</head>
+
+<body>
+  
+  <div>生产环境</div>
+  
+  <button id="clickBtn">点击按钮</button>
+
+  <div class="mask" id="dialog">
+    <div class="content">
+      <div class="title">呵</div>
+      <div class="btn-area"><button id="closeBtn">关闭</button></div>
+    </div>
+
+  </div>
+  <script>
+    var evtSource = new EventSource("/__auto_flash__");
+
+    // 收到服务器发生的事件时触发
+    evtSource.onmessage = function (e) {
+      console.log(e.data);
+      if (e.data === 'reload') {
+        console.log('reloading')
+        location.reload()
+      }
+    }
+    // 成功与服务器发生连接时触发
+    evtSource.onopen = function () {
+      console.log("Server open")
+    }
+    // 出现错误时触发
+    evtSource.onerror = function () {
+      console.log("Error")
+    }
+
+    // 自定义事件
+    evtSource.addEventListener("myEvent", function (e) {
+      console.log(e.data);
+    }, false)
+  </script>
+<script src="./dist.27f38.js"></script>
+</body>
+
+</html>

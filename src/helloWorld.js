@@ -1,0 +1,1 @@
+export default '社会主义好，真善美好。'
